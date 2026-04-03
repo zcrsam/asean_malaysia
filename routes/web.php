@@ -2,10 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/index', function () {
-    return view('index');
-});
+// Serve the React app for all routes (SPA)
+Route::get('/{any?}', function () {
+    return view('app');
+})->where('any', '.*');
